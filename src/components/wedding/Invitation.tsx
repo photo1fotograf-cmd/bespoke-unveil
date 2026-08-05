@@ -1,11 +1,11 @@
 import { SuitIcon, DressIcon, ChurchIcon, DinnerIcon, RingsIcon } from "./icons";
 
 const stops = [
-  { time: "09:30", lines: ["Скуп сватова у дому", "породице Матић"], Icon: SuitIcon, offset: "translate-y-10" },
-  { time: "11:00", lines: ["Скуп сватова у дому", "породице Ђурковић"], Icon: DressIcon, offset: "-translate-y-1" },
-  { time: "13:30", lines: ["Црквено венчање у", "манастиру Љубостиња"], Icon: ChurchIcon, offset: "translate-y-6", below: true },
-  { time: "15:00", lines: ["Свечана сала", "Врњачко Врело"], Icon: DinnerIcon, offset: "-translate-y-8" },
-  { time: "16:00", lines: ["Грађанско венчање"], Icon: RingsIcon, offset: "translate-y-2", below: true },
+  { time: "09:30", lines: ["Скуп сватова у дому", "породице Матић"], Icon: SuitIcon, offset: "sm:translate-y-10" },
+  { time: "11:00", lines: ["Скуп сватова у дому", "породице Ђурковић"], Icon: DressIcon, offset: "sm:-translate-y-1" },
+  { time: "13:30", lines: ["Црквено венчање у", "манастиру Љубостиња"], Icon: ChurchIcon, offset: "sm:translate-y-6", below: true },
+  { time: "15:00", lines: ["Свечана сала", "Врњачко Врело"], Icon: DinnerIcon, offset: "sm:-translate-y-8" },
+  { time: "16:00", lines: ["Грађанско венчање"], Icon: RingsIcon, offset: "sm:translate-y-2", below: true },
 ];
 
 export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> }) {
@@ -54,7 +54,7 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
 
         <div className="mt-[12%] flex flex-wrap items-center justify-center gap-x-[3%] gap-y-8 sm:flex-nowrap">
           {stops.map(({ time, lines, Icon, offset, below }) => (
-            <div key={time} className={`flex w-[46%] flex-col items-center sm:w-1/5 sm:${offset}`}>
+            <div key={time} className={`flex w-[46%] flex-col items-center sm:w-1/5 ${offset}`}>
               {below ? null : (
                 <div className="mb-1 text-[clamp(0.58rem,1.9vw,0.72rem)] leading-[1.5] text-muted-foreground">
                   <span className="block font-bold text-foreground">{time}</span>
