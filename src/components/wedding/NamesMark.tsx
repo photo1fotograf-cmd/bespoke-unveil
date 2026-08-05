@@ -1,10 +1,10 @@
-export function NamesMark({ className }: { className?: string }) {
+export function NamesMark(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      {...props}
       viewBox="0 0 2720.000000 560.000000"
       role="img"
       aria-label="Миона и Илија"
-      className={className}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >

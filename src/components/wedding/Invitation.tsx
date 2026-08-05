@@ -1,3 +1,4 @@
+import { NamesMark } from "./NamesMark";
 import { SuitIcon, DressIcon, ChurchIcon, DinnerIcon, RingsIcon } from "./icons";
 
 const stops = [
