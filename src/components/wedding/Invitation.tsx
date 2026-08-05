@@ -10,7 +10,7 @@ const stops = [
 
 export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> }) {
   return (
-    <article className="paper-texture shadow-paper relative mx-auto w-full max-w-[620px] overflow-hidden text-center">
+    <article className="paper-texture shadow-paper relative mx-auto flex w-full max-w-[620px] flex-col justify-center overflow-hidden text-center sm:aspect-[1/1.38]">
       {/* gold foil deckled edges */}
       <div
         aria-hidden
@@ -21,12 +21,12 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-6 -top-6 h-40 w-40 rotate-12 opacity-70 blur-[1px]"
+        className="pointer-events-none absolute -left-6 -top-6 h-40 w-40 rotate-12 opacity-45 blur-[2px]"
         style={{ background: "radial-gradient(circle at 30% 30%, oklch(0.85 0.1 88 / 0.85), transparent 65%)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-8 -right-6 h-44 w-44 opacity-60 blur-[1px]"
+        className="pointer-events-none absolute -bottom-8 -right-6 h-44 w-44 opacity-40 blur-[2px]"
         style={{ background: "radial-gradient(circle at 70% 70%, oklch(0.82 0.1 88 / 0.8), transparent 65%)" }}
       />
 
