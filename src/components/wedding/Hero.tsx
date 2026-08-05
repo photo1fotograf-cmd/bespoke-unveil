@@ -65,7 +65,7 @@ export function Hero({ onRevealed }: { onRevealed: () => void }) {
         style={{ background: "radial-gradient(circle at 50% 45%, transparent 30%, oklch(0.25 0.02 100 / 0.4))" }}
       />
 
-      <div className="relative w-full max-w-[560px]" style={{ perspective: "1600px" }}>
+      <div className="relative w-full max-w-[620px]" style={{ perspective: "1600px" }}>
         <div ref={card} className="relative z-10 will-change-transform">
           <Invitation />
           <div

@@ -10,7 +10,7 @@ const stops = [
 
 export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> }) {
   return (
-    <article className="paper-texture shadow-paper relative mx-auto w-full max-w-[560px] overflow-hidden text-center">
+    <article className="paper-texture shadow-paper relative mx-auto w-full max-w-[620px] overflow-hidden text-center">
       {/* gold foil deckled edges */}
       <div
         aria-hidden
@@ -30,7 +30,7 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
         style={{ background: "radial-gradient(circle at 70% 70%, oklch(0.82 0.1 88 / 0.8), transparent 65%)" }}
       />
 
-      <div className="relative z-20 px-[7%] pb-[9%] pt-[11%]">
+      <div className="relative z-20 px-[5%] pb-[9%] pt-[11%]">
         <h1 className="font-serif text-[clamp(0.82rem,2.9vw,1.18rem)] uppercase leading-[1.65] tracking-[0.06em] text-foreground">
           Са радошћу вас позивамо
           <br />
@@ -42,7 +42,7 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
         <div ref={nameRef} className="relative mt-[9%]">
           <p
             data-names
-            className="font-script text-[clamp(2.6rem,10.5vw,4.4rem)] leading-[1.05] text-sage"
+            className="whitespace-nowrap font-script text-[clamp(2.1rem,8.6vw,3.6rem)] leading-[1.05] text-sage"
           >
             Миона и Илија
           </p>
@@ -52,11 +52,11 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
           26.09.2026.
         </p>
 
-        <div className="mt-[12%] flex flex-wrap items-center justify-center gap-x-[3%] gap-y-8 sm:flex-nowrap">
+        <div className="mt-[12%] flex flex-wrap items-center justify-center gap-x-[1%] gap-y-8 sm:flex-nowrap">
           {stops.map(({ time, lines, Icon, offset, below }) => (
             <div key={time} className={`flex w-[46%] flex-col items-center sm:w-1/5 ${offset}`}>
               {below ? null : (
-                <div className="mb-1 text-[clamp(0.58rem,1.9vw,0.72rem)] leading-[1.5] text-muted-foreground">
+                <div className="mb-1 w-[128%] text-[clamp(0.55rem,1.75vw,0.68rem)] leading-[1.45] text-muted-foreground">
                   <span className="block font-bold text-foreground">{time}</span>
                   {lines.map((l) => (
                     <span key={l} className="block">{l}</span>
@@ -65,7 +65,7 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
               )}
               <Icon className="h-[clamp(2.1rem,6.5vw,2.9rem)] w-auto text-sage/80" />
               {below ? (
-                <div className="mt-1 text-[clamp(0.58rem,1.9vw,0.72rem)] leading-[1.5] text-muted-foreground">
+                <div className="mt-1 w-[128%] text-[clamp(0.55rem,1.75vw,0.68rem)] leading-[1.45] text-muted-foreground">
                   <span className="block font-bold text-foreground">{time}</span>
                   {lines.map((l) => (
                     <span key={l} className="block">{l}</span>
