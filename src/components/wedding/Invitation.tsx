@@ -40,21 +40,34 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
         </h1>
 
         <div ref={nameRef} className="relative mt-[9%]">
-          <p
-            data-names
-            className="whitespace-nowrap font-script text-[clamp(2.1rem,8.6vw,3.6rem)] leading-[1.05] text-sage"
-          >
-            Миона и Илија
-          </p>
+          <NamesMark data-names className="mx-auto block h-auto w-[86%] text-sage" />
         </div>
 
         <p className="mt-[5%] font-serif text-[clamp(1rem,3.6vw,1.45rem)] tracking-[0.02em] text-foreground">
           26.09.2026.
         </p>
 
-        <div className="mt-[12%] flex flex-wrap items-center justify-center gap-x-[1%] gap-y-8 sm:flex-nowrap">
+        {/* mobile: stacked cards, every event fully readable from 320px */}
+        <div className="mt-[10%] flex flex-col gap-3 sm:hidden">
+          {stops.map(({ time, lines, Icon }) => (
+            <div
+              key={time}
+              className="flex items-center gap-3 rounded-sm border border-gold/30 bg-card/60 px-3 py-2.5 text-left"
+            >
+              <Icon className="h-9 w-9 shrink-0 text-sage/80" />
+              <div className="min-w-0 text-[0.78rem] leading-[1.35] text-muted-foreground">
+                <span className="block font-bold text-foreground">{time}</span>
+                {lines.map((l) => (
+                  <span key={l} className="block">{l}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-[12%] hidden flex-nowrap items-center justify-center gap-x-[1%] sm:flex">
           {stops.map(({ time, lines, Icon, offset, below }) => (
-            <div key={time} className={`flex w-[46%] flex-col items-center sm:w-1/5 ${offset}`}>
+            <div key={time} className={`flex w-1/5 flex-col items-center ${offset}`}>
               {below ? null : (
                 <div className="mb-1 w-[128%] text-[clamp(0.55rem,1.75vw,0.68rem)] leading-[1.45] text-muted-foreground">
                   <span className="block font-bold text-foreground">{time}</span>
