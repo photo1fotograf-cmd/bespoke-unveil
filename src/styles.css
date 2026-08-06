@@ -2,7 +2,8 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Dark mode is permanently disabled: this variant can never match. */
+@custom-variant dark (&:is(.never-dark *));
 
 /*
  * Design system definition.
@@ -115,20 +116,28 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
-/* Dark mode is intentionally disabled — the app is permanently light. */
+/* ── Strict light mode reset (no dark mode anywhere) ───────────── */
 :root {
   color-scheme: light !important;
+  forced-color-adjust: none;
 }
 
-html,
-body,
-#root {
+html {
+  background: #ffffff !important;
   color-scheme: light !important;
-  background-color: #ffffff !important;
-  color: #111111 !important;
 }
 
-/* Prevent iOS/Android automatic color inversion of the page */
+body {
+  background: #ffffff !important;
+  color: #222222 !important;
+}
+
+#root {
+  background: #ffffff !important;
+  min-height: 100vh;
+}
+
+/* Protection against Android / Samsung Internet / Chrome auto dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: light !important;
@@ -136,12 +145,16 @@ body,
   html,
   body,
   #root {
-    background-color: #ffffff !important;
-    color: #111111 !important;
+    background: #ffffff !important;
+    color: #222222 !important;
   }
   .paper-texture,
+  section,
+  article,
+  main,
   [class*="bg-card"],
-  [class*="bg-background"] {
+  [class*="bg-background"],
+  [class*="bg-popover"] {
     background-color: #ffffff !important;
   }
 }
@@ -149,7 +162,7 @@ body,
 @supports (-webkit-touch-callout: none) {
   html,
   body {
-    background-color: #ffffff !important;
+    background: #ffffff !important;
   }
 }
 
