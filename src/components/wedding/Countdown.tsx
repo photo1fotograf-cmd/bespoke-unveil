@@ -38,7 +38,7 @@ export function Countdown() {
       >
         {Object.entries(t).map(([label, value]) => (
           <div key={label} className="flex flex-col items-center">
-            <span className="font-display text-[clamp(1.8rem,7vw,3.4rem)] leading-none gold-text tabular-nums">
+            <span className="font-display text-[clamp(1.8rem,7vw,3.4rem)] leading-none text-ink tabular-nums">
               {String(value).padStart(2, "0")}
             </span>
             <span className="mt-3 text-[clamp(0.55rem,2vw,0.72rem)] uppercase tracking-[0.28em] text-muted-foreground">

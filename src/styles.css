@@ -25,7 +25,9 @@
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
   --color-sage: var(--sage);
+  --color-ink: var(--ink);
   --color-ivory: var(--ivory);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -76,6 +78,8 @@
   --gold: oklch(0.74 0.098 85);
   --gold-soft: oklch(0.86 0.06 88);
   --sage: oklch(0.46 0.035 130);
+  --ink: oklch(0.16 0 0);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.38 0.03 128);
   --card: oklch(1 0 0);
@@ -112,10 +116,41 @@
 }
 
 /* Dark mode is intentionally disabled — the app is permanently light. */
+:root {
+  color-scheme: light !important;
+}
+
 html,
-body {
-  color-scheme: light only;
-  background-color: #ffffff;
+body,
+#root {
+  color-scheme: light !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* Prevent iOS/Android automatic color inversion of the page */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light !important;
+  }
+  html,
+  body,
+  #root {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+  }
+  .paper-texture,
+  [class*="bg-card"],
+  [class*="bg-background"] {
+    background-color: #ffffff !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  html,
+  body {
+    background-color: #ffffff !important;
+  }
 }
 
 @layer base {
@@ -128,6 +163,7 @@ body {
     color: var(--color-foreground);
   }
 }
+
 
 @layer base {
   html {
@@ -147,16 +183,26 @@ body {
 }
 
 @utility gold-text {
+  color: var(--ink);
   background-image: linear-gradient(
     100deg,
     oklch(0.68 0.09 80),
     oklch(0.88 0.08 92),
     oklch(0.7 0.1 78)
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
+
+/* Only make the text transparent where background-clip:text truly works,
+   so numbers never disappear on mobile browsers. */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .gold-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 
 @utility gold-rule {
   background-image: linear-gradient(
