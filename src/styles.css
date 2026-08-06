@@ -25,7 +25,9 @@
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
   --color-sage: var(--sage);
+  --color-ink: var(--ink);
   --color-ivory: var(--ivory);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -179,16 +181,26 @@ body,
 }
 
 @utility gold-text {
+  color: var(--ink);
   background-image: linear-gradient(
     100deg,
     oklch(0.68 0.09 80),
     oklch(0.88 0.08 92),
     oklch(0.7 0.1 78)
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
+
+/* Only make the text transparent where background-clip:text truly works,
+   so numbers never disappear on mobile browsers. */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .gold-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 
 @utility gold-rule {
   background-image: linear-gradient(
