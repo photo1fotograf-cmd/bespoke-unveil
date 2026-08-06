@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import { Hero } from "@/components/wedding/Hero";
-import { Timeline } from "@/components/wedding/Timeline";
 import { Countdown } from "@/components/wedding/Countdown";
 import { MapSection } from "@/components/wedding/MapSection";
 import { Closing } from "@/components/wedding/Closing";
@@ -76,7 +75,6 @@ function Index() {
         <Hero onRevealed={onRevealed} />
       </div>
 
-      <Timeline />
       <Countdown />
       <MapSection />
       <Closing />
