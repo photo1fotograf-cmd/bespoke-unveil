@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const TRACK =
-  "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=relaxing-piano-music-24827.mp3";
+  "https://photo-fotograf.com/wp-content/uploads/2026/08/grand_project-romantic-italian-melody-amore-al-mare-love-at-the-sea-501525.mp3";
 
 export function MusicToggle() {
   const audio = useRef<HTMLAudioElement | null>(null);
