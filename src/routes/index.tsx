@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
-import { Hero } from "@/components/wedding/Hero";
+import { InvitationImage } from "@/components/wedding/InvitationImage";
 import { Countdown } from "@/components/wedding/Countdown";
 import { MapSection } from "@/components/wedding/MapSection";
-import { Closing } from "@/components/wedding/Closing";
 import { GoldDust } from "@/components/wedding/GoldDust";
 import { MusicToggle } from "@/components/wedding/MusicToggle";
 
@@ -31,8 +30,6 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [mounted, setMounted] = useState(false);
-  const [revealed, setRevealed] = useState(false);
-  const parallax = useRef<HTMLDivElement>(null);
 
   useEffect(() => setMounted(true), []);
 
@@ -44,40 +41,20 @@ function Index() {
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
-    if (!revealed) lenis.stop();
-    else lenis.start();
     return () => {
       cancelAnimationFrame(raf);
       lenis.destroy();
     };
-  }, [revealed]);
-
-  useEffect(() => {
-    const el = parallax.current;
-    if (!el) return;
-    const onMove = (e: PointerEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 12;
-      const y = (e.clientY / window.innerHeight - 0.5) * 8;
-      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    };
-    window.addEventListener("pointermove", onMove);
-    return () => window.removeEventListener("pointermove", onMove);
   }, []);
-
-  const onRevealed = useCallback(() => setRevealed(true), []);
 
   return (
     <main className="paper-texture relative min-h-screen overflow-x-hidden">
       {mounted && <GoldDust />}
       <MusicToggle />
 
-      <div ref={parallax} className="transition-transform duration-700 ease-out will-change-transform">
-        <Hero onRevealed={onRevealed} />
-      </div>
-
+      <InvitationImage />
       <Countdown />
       <MapSection />
-      <Closing />
     </main>
   );
 }
