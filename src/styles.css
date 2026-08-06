@@ -70,16 +70,17 @@
 }
 
 :root {
+  color-scheme: light only;
   --radius: 0.25rem;
-  --ivory: oklch(0.972 0.011 92);
+  --ivory: oklch(1 0 0);
   --gold: oklch(0.74 0.098 85);
   --gold-soft: oklch(0.86 0.06 88);
   --sage: oklch(0.46 0.035 130);
-  --background: oklch(0.972 0.011 92);
+  --background: oklch(1 0 0);
   --foreground: oklch(0.38 0.03 128);
-  --card: oklch(0.985 0.008 95);
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.38 0.03 128);
-  --popover: oklch(0.985 0.008 95);
+  --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.38 0.03 128);
   --primary: oklch(0.74 0.098 85);
   --primary-foreground: oklch(0.99 0.008 95);
