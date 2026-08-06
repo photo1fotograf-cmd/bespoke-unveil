@@ -94,9 +94,9 @@ export function Invitation({ nameRef }: { nameRef?: React.Ref<HTMLDivElement> })
           Молимо Вас да свој долазак потврдите до 31.08.2026.
         </p>
 
-        <div className="mt-[8%] text-center font-script text-[1.1rem] leading-[1.3] text-sage">
-          <p>С поштовањем</p>
-          <p>породице Матић и Ђурковић</p>
+        <div className="mt-[8%] text-center font-serif leading-[1.5] text-foreground">
+          <p className="text-sm uppercase tracking-[0.06em]">С поштовањем</p>
+          <p className="mt-1 text-[clamp(0.95rem,3vw,1.15rem)] tracking-[0.02em]">породице Матић и Ђурковић</p>
         </div>
       </div>
     </article>
