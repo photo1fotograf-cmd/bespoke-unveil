@@ -112,10 +112,41 @@
 }
 
 /* Dark mode is intentionally disabled — the app is permanently light. */
+:root {
+  color-scheme: light !important;
+}
+
 html,
-body {
-  color-scheme: light only;
-  background-color: #ffffff;
+body,
+#root {
+  color-scheme: light !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* Prevent iOS/Android automatic color inversion of the page */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light !important;
+  }
+  html,
+  body,
+  #root {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+  }
+  .paper-texture,
+  [class*="bg-card"],
+  [class*="bg-background"] {
+    background-color: #ffffff !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  html,
+  body {
+    background-color: #ffffff !important;
+  }
 }
 
 @layer base {
@@ -128,6 +159,7 @@ body {
     color: var(--color-foreground);
   }
 }
+
 
 @layer base {
   html {
