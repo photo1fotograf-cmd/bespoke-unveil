@@ -4,8 +4,8 @@ const TRACK =
   "https://photo-fotograf.com/wp-content/uploads/2026/08/grand_project-romantic-italian-melody-amore-al-mare-love-at-the-sea-501525.mp3";
 
 export function MusicToggle() {
-  const audio = useRef<HTMLAudioElement | null>(null);
-  const [on, setOn] = useState(false);
+  return null;
+}
 
   useEffect(() => {
     const a = new Audio(TRACK);
