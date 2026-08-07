@@ -1,32 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
-const TRACK =
-  "https://photo-fotograf.com/wp-content/uploads/2026/08/grand_project-romantic-italian-melody-amore-al-mare-love-at-the-sea-501525.mp3";
-
+// Music playback intentionally disabled per request. The component keeps the
+// visual toggle but will not load or play any audio.
 export function MusicToggle() {
-  return null;
-}
-
-  useEffect(() => {
-    const a = new Audio(TRACK);
-    a.loop = true;
-    a.volume = 0.28;
-    audio.current = a;
-    return () => {
-      a.pause();
-      audio.current = null;
-    };
-  }, []);
+  const [on, setOn] = useState(false);
 
   const toggle = () => {
-    const a = audio.current;
-    if (!a) return;
-    if (on) {
-      a.pause();
-      setOn(false);
-    } else {
-      void a.play().then(() => setOn(true)).catch(() => setOn(false));
-    }
+    // Only update UI state; do not create or control an Audio element.
+    setOn((prev) => !prev);
   };
 
   return (
